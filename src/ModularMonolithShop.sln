@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D82D5375-D2DE-4A5C-A3DA-C20AEB67B3EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.Api", "API\ModularMonolithShop.Api\ModularMonolithShop.Api.csproj", "{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.Shared.Kernel", "Shared.Kernel\ModularMonolithShop.Shared.Kernel.csproj", "{88C50033-E307-450D-B495-CC3907597F3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{5021071E-2CDA-4972-B25E-4F6B3B80EC9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.Basket", "Modules\Basket\ModularMonolithShop.Basket.csproj", "{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.Catalog", "Modules\Catalog\ModularMonolithShop.Catalog.csproj", "{6BFAC125-E97E-4C27-9646-C11E9479DF3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.Ordering", "Modules\Ordering\ModularMonolithShop.Ordering.csproj", "{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C50033-E307-450D-B495-CC3907597F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C50033-E307-450D-B495-CC3907597F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C50033-E307-450D-B495-CC3907597F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C50033-E307-450D-B495-CC3907597F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFAC125-E97E-4C27-9646-C11E9479DF3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFAC125-E97E-4C27-9646-C11E9479DF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFAC125-E97E-4C27-9646-C11E9479DF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFAC125-E97E-4C27-9646-C11E9479DF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1} = {D82D5375-D2DE-4A5C-A3DA-C20AEB67B3EA}
+		{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB} = {5021071E-2CDA-4972-B25E-4F6B3B80EC9F}
+		{6BFAC125-E97E-4C27-9646-C11E9479DF3B} = {5021071E-2CDA-4972-B25E-4F6B3B80EC9F}
+		{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9} = {5021071E-2CDA-4972-B25E-4F6B3B80EC9F}
+	EndGlobalSection
+EndGlobal
