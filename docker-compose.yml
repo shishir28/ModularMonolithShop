@@ -1,0 +1,8 @@
+version: "3.4"
+
+services:
+  shop_db:
+    image: postgres
+
+volumes:
+  postgres_data:

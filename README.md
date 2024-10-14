@@ -24,3 +24,6 @@ Libraries:
 3. Mapster
 4. MassTransit
 
+`docker-compose -f ./docker-compose.yml -f ./docker-compose.override.yml up --build`
+`dotnet ef migrations add InitialCreate -s API/ModularMonolithShop.Api/ModularMonolithShop.Api.csproj -p Modules/Catalog/ModularMonolithShop.Catalog.csproj -o Infrastructure/Persistence/Migrations`
+`dotnet ef database update InitialCreate -s API/ModularMonolithShop.Api/ModularMonolithShop.Api.csproj -p Modules/Catalog/ModularMonolithShop.Catalog.csproj`
