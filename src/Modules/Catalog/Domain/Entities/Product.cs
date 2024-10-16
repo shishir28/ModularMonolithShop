@@ -22,9 +22,7 @@ public class Product : Aggregate<Guid>
             Description = description,
             Price = price,
             ImageUrl = imageUrl,
-            Categories = categories,
-            CreatedAt = DateTime.UtcNow,
-            LastModifiedAt = DateTime.UtcNow,
+            Categories = categories
         };
 
         product.AddDomainEvent(new ProductCreatedEvent(product));

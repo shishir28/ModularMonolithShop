@@ -2,18 +2,12 @@ using ModularMonolithShop.Shared.Persistence.Seed;
 
 namespace ModularMonolithShop.Catalog.Infrastructure.Persistence.Seed;
 
-public class CatalogDataSeeder : IDataSeeder
+public class CatalogDataSeeder(CatalogDbContext dbContext) : IDataSeeder
 {
-    private readonly CatalogDbContext _dbContext;
-    public CatalogDataSeeder(CatalogDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    private readonly CatalogDbContext _dbContext = dbContext;
 
     public async Task SeedAllAsync(CancellationToken cancellationToken = default)
-    {
-
-        // TODO: Seed data
+    {    
         if (!await _dbContext.Products.AnyAsync())
         {
             var products = InitialData.Products;
