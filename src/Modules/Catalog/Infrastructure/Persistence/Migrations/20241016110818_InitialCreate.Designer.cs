@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ModularMonolithShop.Catalog.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(CatalogDbContext))]
-    [Migration("20241014110039_InitialCreate")]
+    [Migration("20241016110818_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -54,7 +54,7 @@ namespace ModularMonolithShop.Catalog.Infrastructure.Persistence.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<DateTime?>("LastModified")
+                    b.Property<DateTime?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("LastModifiedBy")

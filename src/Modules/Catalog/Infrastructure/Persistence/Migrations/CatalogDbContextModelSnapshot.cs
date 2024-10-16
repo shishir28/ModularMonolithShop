@@ -51,7 +51,7 @@ namespace ModularMonolithShop.Catalog.Infrastructure.Persistence.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<DateTime?>("LastModified")
+                    b.Property<DateTime?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("LastModifiedBy")

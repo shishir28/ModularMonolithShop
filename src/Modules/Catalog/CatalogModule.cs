@@ -1,7 +1,11 @@
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence;
+using ModularMonolithShop.Shared.Persistence;
+using ModularMonolithShop.Shared.Persistence.Seed;
+using ModularMonolithShop.Catalog.Infrastructure.Persistence.Seed;
 
 namespace ModularMonolithShop.Catalog;
 public static class CatalogModule
@@ -10,8 +14,10 @@ public static class CatalogModule
             IConfiguration configuration)
     {
         // Add services to the container.
+        services.AddScoped<IDataSeeder, CatalogDataSeeder>();
 
-        // Application services
+        // Application 
+
 
         // Infrastructure services
         services.AddDbContext<CatalogDbContext>(options =>
@@ -24,6 +30,9 @@ public static class CatalogModule
 
     public static IApplicationBuilder UseCatalogModule(this IApplicationBuilder app)
     {
+        // Infrastructure services
+        app.UseMigrationsAsync<CatalogDbContext>().GetAwaiter().GetResult();
+        app.SeedDataAsync<CatalogDbContext>().GetAwaiter().GetResult();
         return app;
     }
 }

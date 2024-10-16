@@ -28,7 +28,7 @@ namespace ModularMonolithShop.Catalog.Infrastructure.Persistence.Migrations
                     Categories = table.Column<List<string>>(type: "text[]", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<string>(type: "text", nullable: true),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    LastModifiedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     LastModifiedBy = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
