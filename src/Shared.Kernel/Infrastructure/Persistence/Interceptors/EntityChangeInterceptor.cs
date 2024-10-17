@@ -12,10 +12,10 @@ namespace ModularMonolithShop.Shared.Persistence.Interceptors
             return base.SavingChanges(eventData, result);
         }
 
-        public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
+        public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
         {
             Intercept(eventData.Context);
-            return await base.SavingChangesAsync(eventData, result, cancellationToken);
+            return base.SavingChangesAsync(eventData, result, cancellationToken);
         }
 
         public static void Intercept(DbContext? dbContext)
@@ -28,11 +28,14 @@ namespace ModularMonolithShop.Shared.Persistence.Interceptors
                 {
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                     entry.Entity.LastModifiedAt = DateTime.UtcNow;
+                    entry.Entity.CreatedBy = "System";
+                    entry.Entity.LastModifiedBy = "System";
                 }
 
                 if (entry.State == EntityState.Modified)
                 {
                     entry.Entity.LastModifiedAt = DateTime.UtcNow;
+                    entry.Entity.LastModifiedBy = "System_1";
                 }
             }
         }

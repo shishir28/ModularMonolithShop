@@ -16,15 +16,18 @@ public static class CatalogModule
             IConfiguration configuration)
     {
         // Add services to the container.
-        services.AddScoped<IDataSeeder, CatalogDataSeeder>();
-        services.AddScoped<ISaveChangesInterceptor, EntityChangeInterceptor>();
 
         // Application 
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CatalogModule).Assembly));
 
         // Infrastructure services
+        services.AddScoped<IDataSeeder, CatalogDataSeeder>();
+        services.AddScoped<ISaveChangesInterceptor, EntityChangeInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DomainEventInterceptor>();
+
         services.AddDbContext<CatalogDbContext>((serviceProvider, options) =>
         {
-            options.AddInterceptors(serviceProvider.GetRequiredService<ISaveChangesInterceptor>());
+            options.AddInterceptors(serviceProvider.GetServices<ISaveChangesInterceptor>());
             options.UseNpgsql(configuration.GetConnectionString("Database"));
         });
         return services;
