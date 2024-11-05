@@ -9,9 +9,10 @@ public class Product : Aggregate<Guid>
     public string Description { get; set; } = default!;
     public decimal Price { get; set; }
     public string ImageUrl { get; set; } = default!;
-    public List<string> Categories { get; set; } = new();
+    public List<string> Categories { get; set; } = [];
 
-    public static Product Create(Guid id, string name, List<string> categories, string description, string imageUrl, decimal price)
+    public static Product Create(Guid id, string name, List<string> categories, string description, string imageUrl,
+        decimal price)
     {
         ArgumentNullException.ThrowIfNull(name);
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
@@ -40,12 +41,8 @@ public class Product : Aggregate<Guid>
         ImageUrl = imageUrl;
         Categories = categories;
 
-        if (price != Price)
-        {
-            Price = price;
-            AddDomainEvent(new ProductPriceChangeEvent(this));
-        }
-
+        if (price == Price) return;
+        Price = price;
+        AddDomainEvent(new ProductPriceChangeEvent(this));
     }
-
 }
