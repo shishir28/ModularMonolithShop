@@ -8,6 +8,7 @@ using ModularMonolithShop.Shared.Persistence.Seed;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence.Seed;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using ModularMonolithShop.Shared.Persistence.Interceptors;
+using ModularMonolithShop.Catalog.Infrastructure.Persistence.Repositories;
 
 namespace ModularMonolithShop.Catalog;
 public static class CatalogModule
@@ -24,6 +25,7 @@ public static class CatalogModule
         services.AddScoped<IDataSeeder, CatalogDataSeeder>();
         services.AddScoped<ISaveChangesInterceptor, EntityChangeInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DomainEventInterceptor>();
+        services.AddScoped<IProductRepository, ProductRepository>();
 
         services.AddDbContext<CatalogDbContext>((serviceProvider, options) =>
         {

@@ -6,7 +6,11 @@ namespace ModularMonolithShop.Catalog.Application;
 [Mapper]
 public static partial class ProductMapper
 {
-    private static string MapImageFile(Product product) =>
-        $"{product.ImageUrl}";
+    [MapperIgnoreSource(nameof(Product.CreatedAt))]
+    [MapperIgnoreSource(nameof(Product.CreatedBy))]
+    [MapperIgnoreSource(nameof(Product.LastModifiedAt))]
+    [MapperIgnoreSource(nameof(Product.LastModifiedBy))]
+    [MapperIgnoreSource(nameof(Product.DomainEvents))]
+    [MapProperty(nameof(Product.ImageUrl), nameof(ProductDto.ImageFile))]
     public static partial ProductDto MapToDto(Product product);
 }
