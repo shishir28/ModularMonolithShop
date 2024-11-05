@@ -1,4 +1,3 @@
-using ModularMonolithShop.Catalog.Application.Dtos;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence;
 using ModularMonolithShop.Shared.Kernel.Application.CQRS;
 
@@ -14,9 +13,7 @@ public class GetProductByCategoryHandler(CatalogDbContext dbContext) : IQueryHan
         .OrderBy(x => x.Name)
         .ToListAsync(cancellationToken);
 
-        var result = new GetProductByCategoryResult(products.Select(x => new ProductDto(x.Id, x.Name, x.Categories, x.Description,
-         x.ImageUrl,
-         x.Price)));
+        var result = new GetProductByCategoryResult(products.Select(x => ProductMapper.MapToDto(x)).ToList());
         return result;
     }
 }

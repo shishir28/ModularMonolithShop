@@ -1,10 +1,12 @@
 namespace ModularMonolithShop.Catalog.Application.Dtos;
 
-public record ProductDto(
-    Guid Id,
-    string Name,
-    List<string> Category,
-    string Description,
-    string ImageFile,
-    decimal Price
-);
+public record ProductDto
+{
+    public Guid Id { get; init; }
+    public string Name { get; init; } = default!;
+    public string Description { get; init; } = default!;
+    public decimal Price { get; init; }
+    public string ImageFile { get; init; } = default!;
+    public List<string> Categories { get; init; } = [];
+}
+
