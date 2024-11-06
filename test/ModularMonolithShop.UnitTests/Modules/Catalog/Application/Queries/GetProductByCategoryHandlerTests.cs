@@ -15,10 +15,10 @@ public class GetProductByCategoryHandlerTests
     {
         _mockProductRepository = new Mock<IProductRepository>();
         _sut = new GetProductByCategoryHandler(_mockProductRepository.Object);
-        Setup();
+
     }
 
-    public void Setup()
+    private void Setup()
     {
         var productList = new List<Product>
         {
@@ -38,6 +38,8 @@ public class GetProductByCategoryHandlerTests
     [Fact]
     public async Task Handle_GetProductByCategory_Success()
     {
+        // Arrange
+        Setup();
         // Act
         var result = await _sut.Handle(new GetProductByCategoryQuery("Category 1"), CancellationToken.None);
         // Assert
