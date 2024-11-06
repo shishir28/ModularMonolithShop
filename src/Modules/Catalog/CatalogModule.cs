@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence;
 using ModularMonolithShop.Shared.Persistence;
 using ModularMonolithShop.Shared.Persistence.Seed;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence.Seed;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using ModularMonolithShop.Shared.Persistence.Interceptors;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence.Repositories;
 
