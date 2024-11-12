@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/ModularMonolithShop.sln"
+                "${workspaceFolder}/ModularMonolithShop.sln"
             ]
         },
         {

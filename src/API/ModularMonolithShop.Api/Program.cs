@@ -1,38 +1,8 @@
-
-using ModularMonolithShop.Basket;
-using ModularMonolithShop.Catalog;
-using ModularMonolithShop.Ordering;
+using ModularMonolithShop.Api;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-
-builder.Services.AddBasketModule(builder.Configuration)
-.AddCatalogModule(builder.Configuration)
-.AddOrderingModule(builder.Configuration);
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app
-.UseBasketModule()
-.UseCatalogModule()
-.UseOrderingModule();
+var app = builder.ConfigureServices().ConfigurePipeline();
 
 app.Run();
 
+public partial class Program { }
