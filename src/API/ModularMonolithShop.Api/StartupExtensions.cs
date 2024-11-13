@@ -1,6 +1,7 @@
 using ModularMonolithShop.Basket;
 using ModularMonolithShop.Catalog;
 using ModularMonolithShop.Ordering;
+using ModularMonolithShop.Shared.Kernel.Extensions;
 
 namespace ModularMonolithShop.Api
 {
@@ -15,6 +16,12 @@ namespace ModularMonolithShop.Api
             builder.Services.AddHealthChecks();
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddControllers();
+
+            builder.Services.AddMediatRWithAssemblies([                
+                typeof(BasketModule).Assembly,
+                typeof(CatalogModule).Assembly,
+                typeof(OrderingModule).Assembly
+            ]);
 
             builder.Services.AddBasketModule(builder.Configuration)
                 .AddCatalogModule(builder.Configuration)

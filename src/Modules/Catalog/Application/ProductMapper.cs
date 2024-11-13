@@ -20,9 +20,6 @@ public static partial class ProductMapper
     [MapperIgnoreTarget(nameof(Product.LastModifiedBy))]
     [MapperIgnoreTarget(nameof(Product.DomainEvents))]
     [MapProperty(nameof(ProductDto.ImageFile), nameof(Product.ImageUrl))]
-    public static partial Product MapToEntity(ProductDto product);
-
-
-
+   public static partial Product MapToEntity(ProductDto product);
 
 }
