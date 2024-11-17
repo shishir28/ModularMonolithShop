@@ -19,13 +19,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.Orderin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.UnitTests", "test\ModularMonolithShop.UnitTests\ModularMonolithShop.UnitTests.csproj", "{7FCA342A-1123-4AB6-B09E-B44190193DEE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{AFBDFB3A-62A8-4147-8AFD-F89966970EFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolithShop.IntegrationTests", "test\ModularMonolithShop.IntegrationTests\ModularMonolithShop.IntegrationTests.csproj", "{F7AACCBD-A2E8-4634-BC34-EF2227564C3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,11 +53,20 @@ Global
 		{7FCA342A-1123-4AB6-B09E-B44190193DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FCA342A-1123-4AB6-B09E-B44190193DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FCA342A-1123-4AB6-B09E-B44190193DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7AACCBD-A2E8-4634-BC34-EF2227564C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7AACCBD-A2E8-4634-BC34-EF2227564C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7AACCBD-A2E8-4634-BC34-EF2227564C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7AACCBD-A2E8-4634-BC34-EF2227564C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BE229FAC-7800-4ED3-A360-3DC6D9E2C3E1} = {D82D5375-D2DE-4A5C-A3DA-C20AEB67B3EA}
 		{13F399D8-AD3D-4CAA-9EBB-24B6FB55CEFB} = {5021071E-2CDA-4972-B25E-4F6B3B80EC9F}
 		{6BFAC125-E97E-4C27-9646-C11E9479DF3B} = {5021071E-2CDA-4972-B25E-4F6B3B80EC9F}
 		{8E53B6CF-16BE-4D8A-8FBA-911CA976AEA9} = {5021071E-2CDA-4972-B25E-4F6B3B80EC9F}
+		{7FCA342A-1123-4AB6-B09E-B44190193DEE} = {AFBDFB3A-62A8-4147-8AFD-F89966970EFD}
+		{F7AACCBD-A2E8-4634-BC34-EF2227564C3D} = {AFBDFB3A-62A8-4147-8AFD-F89966970EFD}
 	EndGlobalSection
 EndGlobal

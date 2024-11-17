@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ModularMonolithShop.Shared.Persistence.Seed;
@@ -13,7 +13,9 @@ public static class Extensions
         using var scope = app.ApplicationServices.CreateScope();
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<TContext>();
-        await context.Database.MigrateAsync();
+        var pendingMigrationIds = await context.Database.GetPendingMigrationsAsync().ConfigureAwait(false);
+        if (!pendingMigrationIds.Any())
+            await context.Database.MigrateAsync();
     }
 
     public static async Task SeedDataAsync<TContext>(this IApplicationBuilder app)
@@ -22,8 +24,6 @@ public static class Extensions
         using var scope = app.ApplicationServices.CreateScope();
         var seeders = scope.ServiceProvider.GetServices<IDataSeeder>();
         foreach (var seeder in seeders)
-        {
             await seeder.SeedAllAsync(CancellationToken.None);
-        }
     }
 }

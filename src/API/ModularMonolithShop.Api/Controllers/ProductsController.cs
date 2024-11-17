@@ -47,9 +47,9 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> AddProduct(CreateProductCommand createProductCommand)
         {
-            var id = await _mediator.Send(createProductCommand);
-            // 200 OK is not correct response type. it should be 201. Will come to it later
-            return Ok(id);
+            var productId = await _mediator.Send(createProductCommand);
+            // 200 OK is not correct response type. it should be 201. Will come to it later   
+            return CreatedAtRoute("GetProductDetail", new { productId }, productId);
         }
 
         [HttpPut(Name = "UpdateProduct")]
@@ -58,9 +58,9 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> UpdateProduct(UpdateProductCommand updateProductCommand)
         {
-            var result = await _mediator.Send(updateProductCommand);
+             await _mediator.Send(updateProductCommand);
             // 200 OK is not correct response type. it should be 201. Will come to it later
-            return Ok(result);
+            return NoContent();
         }
 
         [HttpDelete("{productId}", Name = "DeleteProduct")]
@@ -72,7 +72,7 @@ namespace ModularMonolithShop.Api.Controllers
         {
             var result = await _mediator.Send(new DeleteProductCommand(productId));
             // 200 OK is not correct response type. it should be 201. Will come to it later
-            return Ok(result);
+            return NoContent();
         }
     }
 }
