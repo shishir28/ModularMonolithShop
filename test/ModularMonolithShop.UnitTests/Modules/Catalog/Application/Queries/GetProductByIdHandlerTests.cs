@@ -1,4 +1,3 @@
-using ModularMonolithShop.Catalog.Application.Queries.GetProductByCategory;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence.Repositories;
 using Moq;
 using Shouldly;

@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using ModularMonolithShop.Catalog.Domain.Entities;
 
 namespace ModularMonolithShop.Catalog.Infrastructure.Persistence;

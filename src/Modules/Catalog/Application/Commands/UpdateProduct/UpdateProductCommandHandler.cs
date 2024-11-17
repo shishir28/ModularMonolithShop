@@ -1,4 +1,4 @@
-using ModularMonolithShop.Shared.Kernel.Application.CQRS;
+﻿using ModularMonolithShop.Shared.Kernel.Application.CQRS;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence.Repositories;
 using FluentValidation;
 using ModularMonolithShop.Catalog.Domain.Entities;
@@ -16,13 +16,9 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
     }
 }
 
-public class UpdateProductCommandHandler : ICommandHandler<UpdateProductCommand, UpdateProductResult>
+public class UpdateProductCommandHandler(IProductRepository productRepository) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
 {
-    private readonly IProductRepository _productRepository;
-    public UpdateProductCommandHandler(IProductRepository productRepository)
-    {
-        _productRepository = productRepository;
-    }
+    private readonly IProductRepository _productRepository = productRepository;
 
     public async Task<UpdateProductResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {

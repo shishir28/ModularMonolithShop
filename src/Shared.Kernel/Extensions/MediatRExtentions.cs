@@ -1,4 +1,3 @@
-using MediatR;
 using FluentValidation;
 using Shared.Kernel.Behaviors;
 using Microsoft.Extensions.DependencyInjection;

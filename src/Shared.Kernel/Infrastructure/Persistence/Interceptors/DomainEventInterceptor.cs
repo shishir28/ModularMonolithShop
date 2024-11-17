@@ -2,7 +2,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using ModularMonolithShop.Shared.Kernel;
-using ModularMonolithShop.Shared.Kernel.Entities;
 
 namespace ModularMonolithShop.Shared.Persistence.Interceptors
 {

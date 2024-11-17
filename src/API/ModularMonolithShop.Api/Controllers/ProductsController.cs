@@ -1,6 +1,4 @@
-
-using System.Net;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ModularMonolithShop.Catalog.Application.Commands.CreateProduct;
 using ModularMonolithShop.Catalog.Application.Commands.DeleteProduct;
@@ -21,16 +19,8 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetProducts()
         {
-            try
-            {
-                var products = await _mediator.Send(new GetProductsQuery());
-                return Ok(products);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, log it, and return an appropriate error response
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
+            var products = await _mediator.Send(new GetProductsQuery());
+            return Ok(products);
         }
 
         [HttpGet("{productId}", Name = "GetProductDetail")]
@@ -38,16 +28,8 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetProductDetail(Guid productId)
         {
-            try
-            {
-                var product = await _mediator.Send(new GetProductByIdQuery(productId));
-                return Ok(product);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, log it, and return an appropriate error response
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
+            var product = await _mediator.Send(new GetProductByIdQuery(productId));
+            return Ok(product);
         }
 
         [HttpGet("category/{category}", Name = "GetProductByCategory")]
@@ -55,17 +37,8 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetProductByCategory(string category)
         {
-            try
-            {
-
-                var products = await _mediator.Send(new GetProductByCategoryQuery(category));
-                return Ok(products);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, log it, and return an appropriate error response
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
+            var products = await _mediator.Send(new GetProductByCategoryQuery(category));
+            return Ok(products);
         }
 
         [HttpPost(Name = "AddProduct")]
@@ -74,17 +47,9 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> AddProduct(CreateProductCommand createProductCommand)
         {
-            try
-            {
-                var id = await _mediator.Send(createProductCommand);
-                // 200 OK is not correct response type. it should be 201. Will come to it later
-                return Ok(id);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, log it, and return an appropriate error response
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
+            var id = await _mediator.Send(createProductCommand);
+            // 200 OK is not correct response type. it should be 201. Will come to it later
+            return Ok(id);
         }
 
         [HttpPut(Name = "UpdateProduct")]
@@ -93,36 +58,21 @@ namespace ModularMonolithShop.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> UpdateProduct(UpdateProductCommand updateProductCommand)
         {
-            try
-            {
-                var result = await _mediator.Send(updateProductCommand);
-                // 200 OK is not correct response type. it should be 201. Will come to it later
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, log it, and return an appropriate error response
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
+            var result = await _mediator.Send(updateProductCommand);
+            // 200 OK is not correct response type. it should be 201. Will come to it later
+            return Ok(result);
         }
 
         [HttpDelete("{productId}", Name = "DeleteProduct")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> DeleteProduct(Guid productId)
         {
-            try
-            {
-                var result = await _mediator.Send(new DeleteProductCommand(productId));
-                // 200 OK is not correct response type. it should be 201. Will come to it later
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, log it, and return an appropriate error response
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
-            }
+            var result = await _mediator.Send(new DeleteProductCommand(productId));
+            // 200 OK is not correct response type. it should be 201. Will come to it later
+            return Ok(result);
         }
     }
 }

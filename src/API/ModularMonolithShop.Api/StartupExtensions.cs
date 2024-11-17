@@ -1,7 +1,8 @@
-using ModularMonolithShop.Basket;
+﻿using ModularMonolithShop.Basket;
 using ModularMonolithShop.Catalog;
 using ModularMonolithShop.Ordering;
 using ModularMonolithShop.Shared.Kernel.Extensions;
+using Shared.Kernel.Exceptions.Handler;
 
 namespace ModularMonolithShop.Api
 {
@@ -17,7 +18,7 @@ namespace ModularMonolithShop.Api
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddControllers();
 
-            builder.Services.AddMediatRWithAssemblies([                
+            builder.Services.AddMediatRWithAssemblies([
                 typeof(BasketModule).Assembly,
                 typeof(CatalogModule).Assembly,
                 typeof(OrderingModule).Assembly
@@ -27,6 +28,7 @@ namespace ModularMonolithShop.Api
                 .AddCatalogModule(builder.Configuration)
                 .AddOrderingModule(builder.Configuration);
 
+            builder.Services.AddExceptionHandler<CustomExceptionHandler>();
             AddSwagger(builder.Services);
             return builder.Build();
         }
@@ -38,13 +40,13 @@ namespace ModularMonolithShop.Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Modular Monolith.API v1"));
             }
             app.UseStaticFiles();
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             //app.UseRouting();
             app.UseAuthentication();
-            // app.UseCustomExceptionHandler();
+            app.UseExceptionHandler(_ => { });
+
             app
             .UseBasketModule()
             .UseCatalogModule()

@@ -1,5 +1,4 @@
-using ModularMonolithShop.Catalog.Application.Dtos;
-using MediatR;
+﻿using ModularMonolithShop.Catalog.Application.Dtos;
 using ModularMonolithShop.Shared.Kernel.Application.CQRS;
 
 namespace ModularMonolithShop.Catalog.Application.Commands.CreateProduct;

@@ -1,8 +1,7 @@
-
+﻿
 using ModularMonolithShop.Catalog.Domain.Entities;
 
 namespace ModularMonolithShop.Catalog.Infrastructure.Persistence.Configurations;
-
 
 public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {

@@ -1,5 +1,4 @@
 using MediatR;
-using ModularMonolithShop.Shared.Kernel.Entities;
 
 namespace ModularMonolithShop.Shared.Kernel.Application.CQRS;
 

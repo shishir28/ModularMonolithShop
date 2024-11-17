@@ -1,15 +1,11 @@
-using ModularMonolithShop.Shared.Kernel.Application.CQRS;
+﻿using ModularMonolithShop.Shared.Kernel.Application.CQRS;
 using ModularMonolithShop.Catalog.Infrastructure.Persistence.Repositories;
 
 namespace ModularMonolithShop.Catalog.Application.Commands.DeleteProduct;
 
-public class DeleteProductCommandHandler : ICommandHandler<DeleteProductCommand, DeleteProductResult>
+public class DeleteProductCommandHandler(IProductRepository productRepository) : ICommandHandler<DeleteProductCommand, DeleteProductResult>
 {
-    private readonly IProductRepository _productRepository;
-    public DeleteProductCommandHandler(IProductRepository productRepository)
-    {
-        _productRepository = productRepository;
-    }
+    private readonly IProductRepository _productRepository = productRepository;
 
     public async Task<DeleteProductResult> Handle(DeleteProductCommand command, CancellationToken cancellationToken)
     {

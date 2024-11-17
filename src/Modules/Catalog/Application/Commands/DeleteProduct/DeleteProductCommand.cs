@@ -1,5 +1,3 @@
-using ModularMonolithShop.Catalog.Application.Dtos;
-using MediatR;
 using ModularMonolithShop.Shared.Kernel.Application.CQRS;
 
 namespace ModularMonolithShop.Catalog.Application.Commands.DeleteProduct;
