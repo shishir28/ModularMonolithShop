@@ -16,7 +16,6 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
     }
 }
 
-
 public class UpdateProductCommandHandler : ICommandHandler<UpdateProductCommand, UpdateProductResult>
 {
     private readonly IProductRepository _productRepository;
@@ -30,7 +29,7 @@ public class UpdateProductCommandHandler : ICommandHandler<UpdateProductCommand,
         // need to validate incoming command request. Let do it using validator and pipeline after this commit 
         var product = await _productRepository.GetProductByIdAsync(command.Product.Id);
 
-        if (product == null)
+         if (product == null)
             throw new Exception("Product not found"); // return custom exception,  not the generic one.  Fix it later
         var updatedValue = ProductMapper.MapToEntity(command.Product);
         updatedValue = UpdateProduct(updatedValue, product);

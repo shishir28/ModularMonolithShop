@@ -14,7 +14,7 @@ namespace ModularMonolithShop.Shared.Kernel.Extensions
             {
                 config.RegisterServicesFromAssemblies(assemblies);
                 config.AddOpenBehavior(typeof(ValidationPipeline<,>));  
-
+                config.AddOpenBehavior(typeof(LoggingBehaviorPipeline<,>));  
             });
             services.AddValidatorsFromAssemblies(assemblies);
             return services;
